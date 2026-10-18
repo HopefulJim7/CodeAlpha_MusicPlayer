@@ -1,0 +1,79 @@
+:root {
+  --bg-top: #1a1033;
+  --bg-bottom: #0e2a47;
+  --panel: rgba(255, 255, 255, .07);
+  --text: #f1f0f7;
+  --muted: #a9a6c0;
+  --accent: #7cf0c9;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+  color: var(--text);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.player {
+  width: min(380px, 100%);
+  background: var(--panel);
+  border-radius: 18px;
+  padding: 1.6rem;
+  text-align: center;
+}
+
+.cover {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1.2rem;
+  border-radius: 50%;
+  background: conic-gradient(from 90deg, #7cf0c9, #5b6cff, #c86bff, #7cf0c9);
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, .55);
+}
+
+h1 { font-size: 1.3rem; }
+#trackArtist { color: var(--muted); margin-bottom: 1.2rem; }
+
+input[type="range"] { width: 100%; accent-color: var(--accent); cursor: pointer; }
+.time { display: flex; justify-content: space-between; font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+
+.controls { display: flex; justify-content: center; align-items: center; gap: 1.4rem; margin: 1.2rem 0; }
+.controls button {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.controls button:hover { color: var(--accent); }
+.controls .play {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #0b1b2b;
+}
+.controls .play:hover { color: #0b1b2b; filter: brightness(1.1); }
+
+.volume-row { display: flex; align-items: center; gap: .8rem; font-size: .85rem; color: var(--muted); }
+
+.playlist { list-style: none; margin-top: 1.4rem; text-align: left; }
+.playlist li { padding: .6rem .7rem; border-radius: 8px; cursor: pointer; }
+.playlist li:hover { background: rgba(255, 255, 255, .08); }
+.playlist li.active { color: var(--accent); background: rgba(124, 240, 201, .1); }
+
+.credit { font-size: .8rem; color: var(--muted); }
+
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
